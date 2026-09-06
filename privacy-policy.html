@@ -42,7 +42,7 @@ window.addEventListener('DOMContentLoaded', () => {
 <!-- ═══════════════ 日本語 ═══════════════ -->
 <section lang="ja" class="active">
 <h1>プライバシーポリシー</h1>
-<p class="date">最終更新日: 2026年4月13日</p>
+<p class="date">最終更新日: 2026年9月5日</p>
 
 <p>StudyQuest（以下「本アプリ」）の開発者（以下「当方」）は、ユーザーの皆様のプライバシーを尊重し、以下のとおり個人情報の取り扱いについて定めます。</p>
 
@@ -53,6 +53,7 @@ window.addEventListener('DOMContentLoaded', () => {
   <tr><th>情報の種類</th><th>収集元</th><th>目的</th></tr>
   <tr><td>広告識別子 (IDFA / GAID)</td><td>Google AdMob</td><td>広告の配信・効果測定</td></tr>
   <tr><td>購入履歴</td><td>RevenueCat</td><td>アプリ内課金の管理・復元</td></tr>
+  <tr><td>利用状況データ（起動回数・閲覧画面・機能の利用回数・勉強時間の分数。匿名IDに紐づき、科目名・メモ等の入力文は含まない）</td><td>PostHog</td><td>アプリの改善（匿名統計）</td></tr>
   <tr><td>端末情報（OS、機種、言語設定）</td><td>Google AdMob</td><td>広告の最適化</td></tr>
   <tr><td>利用状況（起動回数等）</td><td>※将来導入の場合あり</td><td>アプリの改善</td></tr>
 </table>
@@ -67,20 +68,21 @@ window.addEventListener('DOMContentLoaded', () => {
 <h2>3. 第三者への提供</h2>
 <p>当方は、以下の第三者サービスを利用しています。各サービスのプライバシーポリシーもあわせてご確認ください。</p>
 <p>・<a href="https://policies.google.com/privacy" target="_blank">Google AdMob</a> — 広告配信<br>
-・<a href="https://www.revenuecat.com/privacy" target="_blank">RevenueCat</a> — 課金管理</p>
+・<a href="https://www.revenuecat.com/privacy" target="_blank">RevenueCat</a> — 課金管理<br>
+・<a href="https://posthog.com/privacy" target="_blank">PostHog</a> — 利用状況の分析（匿名）</p>
 <p>上記以外の第三者に個人情報を提供することはありません（法令に基づく場合を除く）。</p>
 
 <h2>4. データの保存</h2>
 <p>ゲームのセーブデータはお使いの端末内にのみ保存され、当方のサーバーには送信されません。アプリを削除するとセーブデータも消去されます。</p>
 
 <h2>5. お子様のプライバシー</h2>
-<p>本アプリは13歳未満のお子様を対象としたサービスではありません。13歳未満のお子様から意図的に個人情報を収集することはありません。</p>
+<p>本アプリは個人を特定する情報を収集しないため年齢を問わずご利用いただけますが、13歳未満のお子様は保護者の同意のもとでご利用ください。13歳未満のお子様から意図的に個人情報を収集することはありません。</p>
 
 <h2>6. 広告のオプトアウト</h2>
 <p>広告のパーソナライズは、端末の設定から無効にできます。</p>
 <p>・iOS: 設定 → プライバシーとセキュリティ → トラッキング<br>
 ・Android: 設定 → Google → 広告 → 広告のカスタマイズをオプトアウト</p>
-<p>プレミアム会員は広告が非表示になります。</p>
+<p>「広告なし」オプション（買い切り）またはプレミアム会員は、広告が非表示になります。</p>
 
 <h2>7. ポリシーの変更</h2>
 <p>本ポリシーは予告なく変更される場合があります。重要な変更がある場合はアプリ内で通知します。</p>
@@ -93,7 +95,7 @@ window.addEventListener('DOMContentLoaded', () => {
 <!-- ═══════════════ English ═══════════════ -->
 <section lang="en">
 <h1>Privacy Policy</h1>
-<p class="date">Last Updated: April 13, 2026</p>
+<p class="date">Last Updated: September 5, 2026</p>
 
 <p>The developer of StudyQuest ("the App") respects your privacy and handles personal information as described below.</p>
 
@@ -104,6 +106,7 @@ window.addEventListener('DOMContentLoaded', () => {
   <tr><th>Type</th><th>Source</th><th>Purpose</th></tr>
   <tr><td>Advertising ID (IDFA / GAID)</td><td>Google AdMob</td><td>Ad delivery and measurement</td></tr>
   <tr><td>Purchase history</td><td>RevenueCat</td><td>In-app purchase management and restoration</td></tr>
+  <tr><td>Usage data (app launches, screens viewed, feature usage counts, study minutes; tied to a random ID, never including text you enter such as subject names or notes)</td><td>PostHog</td><td>App improvement (anonymous statistics)</td></tr>
   <tr><td>Device info (OS, model, language)</td><td>Google AdMob</td><td>Ad optimization</td></tr>
 </table>
 
@@ -113,17 +116,18 @@ window.addEventListener('DOMContentLoaded', () => {
 <h2>3. Third-Party Services</h2>
 <p>We use the following third-party services:<br>
 ・<a href="https://policies.google.com/privacy" target="_blank">Google AdMob</a> — Ad delivery<br>
-・<a href="https://www.revenuecat.com/privacy" target="_blank">RevenueCat</a> — Purchase management</p>
+・<a href="https://www.revenuecat.com/privacy" target="_blank">RevenueCat</a> — Purchase management<br>
+・<a href="https://posthog.com/privacy" target="_blank">PostHog</a> — Usage analytics (anonymous)</p>
 <p>We do not share personal information with any other third parties except as required by law.</p>
 
 <h2>4. Data Storage</h2>
 <p>Game save data is stored only on your device and is not transmitted to our servers. Uninstalling the App will delete your save data.</p>
 
 <h2>5. Children's Privacy</h2>
-<p>The App is not intended for children under 13. We do not knowingly collect personal information from children under 13.</p>
+<p>The App can be used at any age because it does not collect personally identifiable information; however, children under 13 should use it with a parent's or guardian's consent. We do not knowingly collect personal information from children under 13.</p>
 
 <h2>6. Opting Out of Personalized Ads</h2>
-<p>You can opt out of personalized advertising through your device settings. Premium members see no ads.</p>
+<p>You can opt out of personalized advertising through your device settings. Ad-Free (one-time purchase) and Premium members see no ads.</p>
 
 <h2>7. Changes to This Policy</h2>
 <p>This policy may be updated without prior notice. Significant changes will be notified within the App.</p>
@@ -135,7 +139,7 @@ window.addEventListener('DOMContentLoaded', () => {
 <!-- ═══════════════ 中文 ═══════════════ -->
 <section lang="zh">
 <h1>隐私政策</h1>
-<p class="date">最后更新: 2026年4月13日</p>
+<p class="date">最后更新: 2026年9月5日</p>
 
 <p>StudyQuest（以下简称"本应用"）的开发者尊重您的隐私，并按照以下规定处理个人信息。</p>
 
@@ -146,6 +150,7 @@ window.addEventListener('DOMContentLoaded', () => {
   <tr><th>信息类型</th><th>来源</th><th>目的</th></tr>
   <tr><td>广告标识符 (IDFA / GAID)</td><td>Google AdMob</td><td>广告投放与效果评估</td></tr>
   <tr><td>购买记录</td><td>RevenueCat</td><td>应用内购买管理与恢复</td></tr>
+  <tr><td>使用数据（启动次数、浏览页面、功能使用次数、学习分钟数；与随机 ID 关联，不包含科目名称、备注等输入文字）</td><td>PostHog</td><td>应用改进（匿名统计）</td></tr>
   <tr><td>设备信息（操作系统、型号、语言）</td><td>Google AdMob</td><td>广告优化</td></tr>
 </table>
 
@@ -155,17 +160,18 @@ window.addEventListener('DOMContentLoaded', () => {
 <h2>3. 第三方服务</h2>
 <p>我们使用以下第三方服务：<br>
 ・<a href="https://policies.google.com/privacy" target="_blank">Google AdMob</a> — 广告投放<br>
-・<a href="https://www.revenuecat.com/privacy" target="_blank">RevenueCat</a> — 购买管理</p>
+・<a href="https://www.revenuecat.com/privacy" target="_blank">RevenueCat</a> — 购买管理<br>
+・<a href="https://posthog.com/privacy" target="_blank">PostHog</a> — 使用情况分析（匿名）</p>
 <p>除法律要求外，我们不会与任何其他第三方共享个人信息。</p>
 
 <h2>4. 数据存储</h2>
 <p>游戏存档仅保存在您的设备上，不会传输到我们的服务器。卸载应用将删除存档数据。</p>
 
 <h2>5. 儿童隐私</h2>
-<p>本应用不面向13岁以下的儿童。我们不会故意收集13岁以下儿童的个人信息。</p>
+<p>本应用不收集可识别个人的信息，任何年龄均可使用；但13岁以下儿童请在监护人同意下使用。我们不会故意收集13岁以下儿童的个人信息。</p>
 
 <h2>6. 退出个性化广告</h2>
-<p>您可以通过设备设置退出个性化广告。高级会员不显示广告。</p>
+<p>您可以通过设备设置退出个性化广告。「去广告」选项（一次性购买）或高级会员不显示广告。</p>
 
 <h2>7. 政策变更</h2>
 <p>本政策可能会更新。重大变更将在应用内通知。</p>
