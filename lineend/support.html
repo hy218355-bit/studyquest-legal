@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>サポート — ラインエンド / LINE END Support</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Segoe UI", sans-serif; line-height: 1.8; color: #333; background: #fafafa; padding: 24px; max-width: 720px; margin: 0 auto; }
+  h1 { font-size: 1.5rem; margin-bottom: 4px; color: #0b2a36; }
+  h2 { font-size: 1.1rem; margin-top: 24px; margin-bottom: 6px; color: #0b2a36; border-bottom: 1px solid #ddd; padding-bottom: 4px; }
+  p { margin-bottom: 10px; }
+  .lead { color: #557; margin-bottom: 20px; }
+  .lang-switch { text-align: right; margin-bottom: 16px; }
+  .lang-switch a { margin-left: 8px; text-decoration: none; color: #2b7a8f; }
+  section[lang]:not(.active) { display: none; }
+</style>
+<script>
+function switchLang(lang) {
+  document.querySelectorAll('section[lang]').forEach(function (s) { s.classList.remove('active'); });
+  document.querySelector('section[lang="' + lang + '"]').classList.add('active');
+}
+window.addEventListener('DOMContentLoaded', function () {
+  var l = navigator.language || 'ja';
+  switchLang(l.indexOf('ja') === 0 ? 'ja' : 'en');
+});
+</script>
+</head>
+<body>
+<div class="lang-switch">
+  <a href="#" onclick="switchLang('ja'); return false;">日本語</a>
+  <a href="#" onclick="switchLang('en'); return false;">English</a>
+</div>
+
+<section lang="ja" class="active">
+<h1>ラインエンド サポート</h1>
+<p class="lead">空気・ライン・光で潜る洞窟探検</p>
+<h2>お問い合わせ</h2>
+<p>不具合・ご意見は、メールでお知らせください: <a href="mailto:hy218355@gmail.com">hy218355@gmail.com</a><br>（端末の機種・iOS の版・どのコースで何が起きたかを書いていただけると助かります）</p>
+<h2>よくある質問</h2>
+<p><b>記録を別の iPhone に移したい</b><br>「設定」→「記録を書き出す」で出る文字をメモなどに残し、新しい iPhone の「設定」→「記録を読み込む」に貼ってください。</p>
+<p><b>操作が分からない</b><br>最初の潜行で、操作を1つずつ教える手ほどきがあります。「設定」→「手ほどきを最初から」でもう一度見られます。</p>
+<p><b>音が鳴らない</b><br>「設定」の音量を確かめてください。電話やほかのアプリから戻った時に音が出ない場合は、アプリを開き直してください。</p>
+<h2>プライバシー</h2>
+<p><a href="privacy-policy.html">プライバシーポリシー</a>（本アプリは情報を集めません）</p>
+</section>
+
+<section lang="en">
+<h1>LINE END Support</h1>
+<p class="lead">Air. Line. Light. Go deeper.</p>
+<h2>Contact</h2>
+<p>For bugs or feedback, please email: <a href="mailto:hy218355@gmail.com">hy218355@gmail.com</a><br>(It helps to include your device model, iOS version, and which cave you were in.)</p>
+<h2>FAQ</h2>
+<p><b>How do I move my save to another iPhone?</b><br>In Settings, tap "Export save" and keep the text somewhere (such as Notes). On your new iPhone, paste it into Settings → "Import save".</p>
+<p><b>I don't know how to play</b><br>Your first dive includes a step-by-step tutorial. You can replay it from Settings → "Restart the tutorial".</p>
+<p><b>No sound</b><br>Check the volume in Settings. If there's no sound after returning from a call or another app, reopen the app.</p>
+<h2>Privacy</h2>
+<p><a href="privacy-policy.html">Privacy Policy</a> (this app collects no data)</p>
+</section>
+</body>
+</html>

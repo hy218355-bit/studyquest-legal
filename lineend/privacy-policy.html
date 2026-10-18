@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>プライバシーポリシー — ラインエンド / LINE END</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Segoe UI", sans-serif; line-height: 1.8; color: #333; background: #fafafa; padding: 24px; max-width: 720px; margin: 0 auto; }
+  h1 { font-size: 1.5rem; margin-bottom: 8px; color: #0b2a36; }
+  h2 { font-size: 1.15rem; margin-top: 28px; margin-bottom: 8px; color: #0b2a36; border-bottom: 1px solid #ddd; padding-bottom: 4px; }
+  p, li { margin-bottom: 10px; }
+  ul { padding-left: 1.4em; }
+  .date { color: #888; font-size: 0.9rem; margin-bottom: 24px; }
+  .lang-switch { text-align: right; margin-bottom: 16px; }
+  .lang-switch a { margin-left: 8px; text-decoration: none; color: #2b7a8f; }
+  section[lang]:not(.active) { display: none; }
+</style>
+<script>
+function switchLang(lang) {
+  document.querySelectorAll('section[lang]').forEach(function (s) { s.classList.remove('active'); });
+  document.querySelector('section[lang="' + lang + '"]').classList.add('active');
+}
+window.addEventListener('DOMContentLoaded', function () {
+  var l = navigator.language || 'ja';
+  switchLang(l.indexOf('ja') === 0 ? 'ja' : 'en');
+});
+</script>
+</head>
+<body>
+<div class="lang-switch">
+  <a href="#" onclick="switchLang('ja'); return false;">日本語</a>
+  <a href="#" onclick="switchLang('en'); return false;">English</a>
+</div>
+
+<section lang="ja" class="active">
+<h1>プライバシーポリシー</h1>
+<p class="date">最終更新日: 2026年10月18日</p>
+<p>ラインエンド（以下「本アプリ」）の開発者（以下「当方」）は、利用者の個人情報を集めません。</p>
+<h2>1. 集める情報</h2>
+<ul>
+  <li>本アプリは通信を行いません。広告・解析・アカウント・アプリ内課金はありません。</li>
+  <li>当方を含め、外部に情報が送られることはありません。</li>
+</ul>
+<h2>2. 端末に保存する情報</h2>
+<ul>
+  <li>ゲームの記録（進み具合・設定）は、利用者の端末の中だけに保存されます。</li>
+  <li>「記録の書き出し」で作られる文字は、利用者が自分でコピーした時にだけ、利用者が選んだ場所に保存されます。</li>
+  <li>端末のバックアップ（iCloud など）に記録が含まれる場合、その扱いは Apple のプライバシーポリシーに従います。</li>
+</ul>
+<h2>3. 変更</h2>
+<p>このポリシーを変える時は、このページでお知らせします。</p>
+<h2>4. お問い合わせ</h2>
+<p>メール: <a href="mailto:hy218355@gmail.com">hy218355@gmail.com</a></p>
+</section>
+
+<section lang="en">
+<h1>Privacy Policy</h1>
+<p class="date">Last updated: October 18, 2026</p>
+<p>The developer of LINE END (the "App") does not collect any personal information.</p>
+<h2>1. Information we collect</h2>
+<ul>
+  <li>The App does not connect to the internet. There are no ads, no analytics, no accounts and no in-app purchases.</li>
+  <li>No information is sent anywhere, including to the developer.</li>
+</ul>
+<h2>2. Information stored on your device</h2>
+<ul>
+  <li>Your game data (progress and settings) is stored only on your device.</li>
+  <li>Text created with "Export save" is stored only where you choose to paste it.</li>
+  <li>If your device backup (such as iCloud) includes your game data, it is handled under Apple's privacy policy.</li>
+</ul>
+<h2>3. Changes</h2>
+<p>If this policy changes, we will post the update on this page.</p>
+<h2>4. Contact</h2>
+<p>Email: <a href="mailto:hy218355@gmail.com">hy218355@gmail.com</a></p>
+</section>
+</body>
+</html>
