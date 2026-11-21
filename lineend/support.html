@@ -7,22 +7,28 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Segoe UI", sans-serif; line-height: 1.8; color: #333; background: #fafafa; padding: 24px; max-width: 720px; margin: 0 auto; }
-  h1 { font-size: 1.5rem; margin-bottom: 4px; color: #0b2a36; }
-  h2 { font-size: 1.1rem; margin-top: 24px; margin-bottom: 6px; color: #0b2a36; border-bottom: 1px solid #ddd; padding-bottom: 4px; }
-  p { margin-bottom: 10px; }
+  h1 { font-size: 1.5rem; margin-bottom: 8px; color: #0b2a36; }
+  h2 { font-size: 1.15rem; margin-top: 28px; margin-bottom: 8px; color: #0b2a36; border-bottom: 1px solid #ddd; padding-bottom: 4px; }
+  p, li { margin-bottom: 10px; }
+  ul { padding-left: 1.4em; }
+  a { color: #2b7a8f; }
   .lead { color: #557; margin-bottom: 20px; }
   .lang-switch { text-align: right; margin-bottom: 16px; }
-  .lang-switch a { margin-left: 8px; text-decoration: none; color: #2b7a8f; }
+  .lang-switch a { margin-left: 8px; text-decoration: none; }
   section[lang]:not(.active) { display: none; }
 </style>
 <script>
+var LANGS = ['ja', 'en', 'de', 'fr', 'es'];
 function switchLang(lang) {
+  if (LANGS.indexOf(lang) < 0) lang = 'en';
   document.querySelectorAll('section[lang]').forEach(function (s) { s.classList.remove('active'); });
   document.querySelector('section[lang="' + lang + '"]').classList.add('active');
+  document.documentElement.lang = lang;
 }
 window.addEventListener('DOMContentLoaded', function () {
-  var l = navigator.language || 'ja';
-  switchLang(l.indexOf('ja') === 0 ? 'ja' : 'en');
+  var q = (location.search.match(/[?&]lang=([a-z]{2})/) || [])[1];
+  var l = (q || navigator.language || 'en').slice(0, 2).toLowerCase();
+  switchLang(l);
 });
 </script>
 </head>
@@ -30,6 +36,9 @@ window.addEventListener('DOMContentLoaded', function () {
 <div class="lang-switch">
   <a href="#" onclick="switchLang('ja'); return false;">日本語</a>
   <a href="#" onclick="switchLang('en'); return false;">English</a>
+  <a href="#" onclick="switchLang('de'); return false;">Deutsch</a>
+  <a href="#" onclick="switchLang('fr'); return false;">Français</a>
+  <a href="#" onclick="switchLang('es'); return false;">Español</a>
 </div>
 
 <section lang="ja" class="active">
@@ -41,10 +50,16 @@ window.addEventListener('DOMContentLoaded', function () {
 <p><b>記録を別の iPhone に移したい</b><br>「設定」→「記録を書き出す」で出る文字をメモなどに残し、新しい iPhone の「設定」→「記録を読み込む」に貼ってください。</p>
 <p><b>操作が分からない</b><br>最初の潜行で、操作を1つずつ教える手ほどきがあります。「設定」→「手ほどきを最初から」でもう一度見られます。</p>
 <p><b>音が鳴らない</b><br>「設定」の音量を確かめてください。電話やほかのアプリから戻った時に音が出ない場合は、アプリを開き直してください。</p>
+<p><b>買ったコースが開かない・機種を変えた</b><br>「設定」→「購入を復元」を押してください。購入した時と同じ Apple アカウントで App Store にサインインしている必要があります。</p>
+<p><b>返金したい</b><br>アプリ内課金の返金は Apple が受け付けています。<a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a> から申し込めます。</p>
+<p><b>遊ばれ方の記録を送りたくない</b><br>「設定」→「遊ばれ方の記録」で「送らない」を選んでください。以後は何も送りません。</p>
+<h2>ご利用にあたって</h2>
+<p><b>安全について</b><br>このゲームは娯楽です。本物の潜水の訓練や計画には使わないでください。洞窟潜水は、専門の訓練を受けた人だけが行うものです。ゲームの中の手順や数字は、遊びのために簡単にしてあります。</p>
+<p><b>順位表（Game Center）</b><br>改造などで得た記録は、順位表から外すことがあります。</p>
+<p><b>利用許諾</b><br>本アプリの使用には、<a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple の標準の利用許諾契約</a>が適用されます。</p>
 <h2>プライバシー</h2>
-<p><a href="privacy-policy.html">プライバシーポリシー</a>（本アプリは情報を集めません）</p>
+<p><a href="privacy-policy.html?lang=ja">プライバシーポリシー</a>（遊ばれ方の記録を、名前を使わずに送ります。止め方もこちら）</p>
 </section>
-
 <section lang="en">
 <h1>LINE END Support</h1>
 <p class="lead">Air. Line. Light. Go deeper.</p>
@@ -54,8 +69,72 @@ window.addEventListener('DOMContentLoaded', function () {
 <p><b>How do I move my save to another iPhone?</b><br>In Settings, tap "Export save" and keep the text somewhere (such as Notes). On your new iPhone, paste it into Settings → "Import save".</p>
 <p><b>I don't know how to play</b><br>Your first dive includes a step-by-step tutorial. You can replay it from Settings → "Restart the tutorial".</p>
 <p><b>No sound</b><br>Check the volume in Settings. If there's no sound after returning from a call or another app, reopen the app.</p>
+<p><b>The caves I bought aren't open / I changed devices</b><br>Go to Settings → "Restore purchase". You need to be signed in to the App Store with the same Apple Account you used to buy.</p>
+<p><b>I want a refund</b><br>Refunds for in-app purchases are handled by Apple. You can request one at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
+<p><b>I don't want to send play data</b><br>Go to Settings → "Play data" and choose "Don't send". Nothing is sent after that.</p>
+<h2>Before you play</h2>
+<p><b>Safety</b><br>This game is entertainment. Don't use it to train for or plan real dives. Cave diving is only for people with specialist training. Procedures and numbers in the game are simplified for play.</p>
+<p><b>Leaderboards (Game Center)</b><br>Scores obtained by modifying the game or similar means may be removed from leaderboards.</p>
+<p><b>License</b><br>Use of the App is governed by <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple's Standard License Agreement</a>.</p>
 <h2>Privacy</h2>
-<p><a href="privacy-policy.html">Privacy Policy</a> (this app collects no data)</p>
+<p><a href="privacy-policy.html?lang=en">Privacy Policy</a> (play data is sent without your name; how to turn it off is explained there)</p>
+</section>
+<section lang="de">
+<h1>LINE END Support</h1>
+<p class="lead">Luft. Leine. Licht. Tiefer hinab.</p>
+<h2>Kontakt</h2>
+<p>Fehler oder Feedback bitte per E-Mail an: <a href="mailto:hy218355@gmail.com">hy218355@gmail.com</a><br>(Hilfreich sind Gerätemodell, iOS-Version und die Höhle, in der es passiert ist.)</p>
+<h2>Häufige Fragen</h2>
+<p><b>Wie übertrage ich meinen Spielstand auf ein anderes iPhone?</b><br>Tippe in den Einstellungen auf „Spielstand exportieren“ und bewahre den Text auf (z. B. in Notizen). Füge ihn auf dem neuen iPhone unter Einstellungen → „Spielstand importieren“ ein.</p>
+<p><b>Ich weiß nicht, wie man spielt</b><br>Dein erster Tauchgang enthält ein Tutorial Schritt für Schritt. Du kannst es unter Einstellungen → „Tutorial neu starten“ wiederholen.</p>
+<p><b>Kein Ton</b><br>Prüfe die Lautstärke in den Einstellungen. Wenn nach einem Anruf oder einer anderen App kein Ton kommt, öffne die App neu.</p>
+<p><b>Gekaufte Höhlen sind nicht offen / neues Gerät</b><br>Tippe unter Einstellungen auf „Kauf wiederherstellen“. Du musst im App Store mit demselben Apple Account angemeldet sein, mit dem du gekauft hast.</p>
+<p><b>Ich möchte eine Erstattung</b><br>Erstattungen für In-App-Käufe bearbeitet Apple. Du kannst sie unter <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a> beantragen.</p>
+<p><b>Ich möchte keine Spieldaten senden</b><br>Wähle unter Einstellungen → „Spieldaten“ die Option „Nicht senden“. Danach wird nichts mehr gesendet.</p>
+<h2>Bevor du spielst</h2>
+<p><b>Sicherheit</b><br>Dieses Spiel dient der Unterhaltung. Nutze es nicht als Training oder zur Planung echter Tauchgänge. Höhlentauchen ist nur etwas für Menschen mit spezieller Ausbildung. Abläufe und Zahlen im Spiel sind für das Spiel vereinfacht.</p>
+<p><b>Ranglisten (Game Center)</b><br>Ergebnisse, die durch Veränderung des Spiels oder ähnliche Mittel entstanden sind, können aus den Ranglisten entfernt werden.</p>
+<p><b>Lizenz</b><br>Für die Nutzung der App gilt die <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Standard-Lizenzvereinbarung von Apple</a>.</p>
+<h2>Datenschutz</h2>
+<p><a href="privacy-policy.html?lang=de">Datenschutzerklärung</a> (Spieldaten werden ohne deinen Namen gesendet; dort steht auch, wie du es abstellst)</p>
+</section>
+<section lang="fr">
+<h1>Assistance LINE END</h1>
+<p class="lead">Air. Fil. Lumière. Plus profond.</p>
+<h2>Contact</h2>
+<p>Pour un bug ou une remarque, écris-nous : <a href="mailto:hy218355@gmail.com">hy218355@gmail.com</a><br>(Indique si possible le modèle de l’appareil, la version d’iOS et la grotte concernée.)</p>
+<h2>Questions fréquentes</h2>
+<p><b>Comment transférer ma sauvegarde sur un autre iPhone ?</b><br>Dans Réglages, touche « Exporter la sauvegarde » et garde le texte (par exemple dans Notes). Sur le nouvel iPhone, colle-le dans Réglages → « Importer une sauvegarde ».</p>
+<p><b>Je ne sais pas comment jouer</b><br>Ta première plongée comprend un tutoriel pas à pas. Tu peux le revoir dans Réglages → « Recommencer le tutoriel ».</p>
+<p><b>Pas de son</b><br>Vérifie le volume dans les Réglages. S’il n’y a plus de son après un appel ou une autre app, rouvre l’app.</p>
+<p><b>Les grottes achetées ne sont pas ouvertes / j’ai changé d’appareil</b><br>Va dans Réglages → « Restaurer l’achat ». Tu dois être connecté à l’App Store avec le même compte Apple que lors de l’achat.</p>
+<p><b>Je souhaite un remboursement</b><br>Les remboursements des achats intégrés sont gérés par Apple. Tu peux en faire la demande sur <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
+<p><b>Je ne veux pas envoyer de données de jeu</b><br>Va dans Réglages → « Données de jeu » et choisis « Ne pas envoyer ». Plus rien n’est envoyé ensuite.</p>
+<h2>Avant de jouer</h2>
+<p><b>Sécurité</b><br>Ce jeu est un divertissement. Ne l’utilise pas pour t’entraîner ni pour planifier de vraies plongées. La plongée souterraine est réservée aux personnes ayant suivi une formation spécialisée. Les procédures et les chiffres du jeu sont simplifiés pour le jeu.</p>
+<p><b>Classements (Game Center)</b><br>Les scores obtenus en modifiant le jeu ou par des moyens similaires peuvent être retirés des classements.</p>
+<p><b>Licence</b><br>L’utilisation de l’App est régie par le <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">contrat de licence standard d’Apple</a>.</p>
+<h2>Confidentialité</h2>
+<p><a href="privacy-policy.html?lang=fr">Politique de confidentialité</a> (les données de jeu sont envoyées sans ton nom ; tu y trouveras aussi comment les désactiver)</p>
+</section>
+<section lang="es">
+<h1>Soporte de LINE END</h1>
+<p class="lead">Aire. Línea. Luz. Más profundo.</p>
+<h2>Contacto</h2>
+<p>Para errores o comentarios, escríbenos a: <a href="mailto:hy218355@gmail.com">hy218355@gmail.com</a><br>(Ayuda indicar el modelo del dispositivo, la versión de iOS y la cueva en la que pasó.)</p>
+<h2>Preguntas frecuentes</h2>
+<p><b>¿Cómo paso mi partida a otro iPhone?</b><br>En Ajustes, toca «Exportar partida» y guarda el texto (por ejemplo, en Notas). En el iPhone nuevo, pégalo en Ajustes → «Importar partida».</p>
+<p><b>No sé cómo se juega</b><br>Tu primera inmersión incluye un tutorial paso a paso. Puedes repetirlo en Ajustes → «Reiniciar el tutorial».</p>
+<p><b>No hay sonido</b><br>Revisa el volumen en Ajustes. Si no hay sonido después de una llamada u otra app, vuelve a abrir la app.</p>
+<p><b>Las cuevas que compré no están abiertas / cambié de dispositivo</b><br>Ve a Ajustes → «Restaurar compra». Debes haber iniciado sesión en el App Store con la misma cuenta de Apple con la que compraste.</p>
+<p><b>Quiero un reembolso</b><br>Apple gestiona los reembolsos de las compras dentro de la app. Puedes solicitarlo en <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
+<p><b>No quiero enviar datos de juego</b><br>Ve a Ajustes → «Datos de juego» y elige «No enviar». A partir de entonces no se envía nada.</p>
+<h2>Antes de jugar</h2>
+<p><b>Seguridad</b><br>Este juego es entretenimiento. No lo uses para entrenar ni para planificar inmersiones reales. El buceo en cuevas es solo para personas con formación especializada. Los procedimientos y las cifras del juego están simplificados para jugar.</p>
+<p><b>Clasificaciones (Game Center)</b><br>Las puntuaciones obtenidas modificando el juego o por medios similares pueden retirarse de las clasificaciones.</p>
+<p><b>Licencia</b><br>El uso de la App se rige por el <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">contrato de licencia estándar de Apple</a>.</p>
+<h2>Privacidad</h2>
+<p><a href="privacy-policy.html?lang=es">Política de privacidad</a> (los datos de juego se envían sin tu nombre; allí también se explica cómo desactivarlo)</p>
 </section>
 </body>
 </html>

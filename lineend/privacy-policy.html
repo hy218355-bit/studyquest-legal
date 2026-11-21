@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>プライバシーポリシー — ラインエンド / LINE END</title>
+<title>プライバシーポリシー — ラインエンド / LINE END Privacy Policy</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Segoe UI", sans-serif; line-height: 1.8; color: #333; background: #fafafa; padding: 24px; max-width: 720px; margin: 0 auto; }
@@ -11,19 +11,24 @@
   h2 { font-size: 1.15rem; margin-top: 28px; margin-bottom: 8px; color: #0b2a36; border-bottom: 1px solid #ddd; padding-bottom: 4px; }
   p, li { margin-bottom: 10px; }
   ul { padding-left: 1.4em; }
+  a { color: #2b7a8f; }
   .date { color: #888; font-size: 0.9rem; margin-bottom: 24px; }
   .lang-switch { text-align: right; margin-bottom: 16px; }
-  .lang-switch a { margin-left: 8px; text-decoration: none; color: #2b7a8f; }
+  .lang-switch a { margin-left: 8px; text-decoration: none; }
   section[lang]:not(.active) { display: none; }
 </style>
 <script>
+var LANGS = ['ja', 'en', 'de', 'fr', 'es'];
 function switchLang(lang) {
+  if (LANGS.indexOf(lang) < 0) lang = 'en';
   document.querySelectorAll('section[lang]').forEach(function (s) { s.classList.remove('active'); });
   document.querySelector('section[lang="' + lang + '"]').classList.add('active');
+  document.documentElement.lang = lang;
 }
 window.addEventListener('DOMContentLoaded', function () {
-  var l = navigator.language || 'ja';
-  switchLang(l.indexOf('ja') === 0 ? 'ja' : 'en');
+  var q = (location.search.match(/[?&]lang=([a-z]{2})/) || [])[1];
+  var l = (q || navigator.language || 'en').slice(0, 2).toLowerCase();
+  switchLang(l);
 });
 </script>
 </head>
@@ -31,52 +36,214 @@ window.addEventListener('DOMContentLoaded', function () {
 <div class="lang-switch">
   <a href="#" onclick="switchLang('ja'); return false;">日本語</a>
   <a href="#" onclick="switchLang('en'); return false;">English</a>
+  <a href="#" onclick="switchLang('de'); return false;">Deutsch</a>
+  <a href="#" onclick="switchLang('fr'); return false;">Français</a>
+  <a href="#" onclick="switchLang('es'); return false;">Español</a>
 </div>
 
 <section lang="ja" class="active">
 <h1>プライバシーポリシー</h1>
-<p class="date">最終更新日: 2026年11月15日</p>
-<p>ラインエンド（以下「本アプリ」）の開発者（以下「当方」）は、利用者の名前・連絡先などの個人情報を集めません。</p>
+<p class="date">最終更新日: 2026年11月21日</p>
+<p>ラインエンド（以下「本アプリ」）の開発者（App Store に販売者として表示されている個人。以下「当方」）は、利用者の名前・連絡先などの個人情報を集めません。本アプリで扱う情報と、その扱い方は次のとおりです。</p>
 <h2>1. 集める情報</h2>
 <ul>
-  <li><b>遊ばれ方の記録（名前を使わない）</b>: 本アプリをより良くするために、遊ばれ方の記録を解析サービス PostHog（PostHog, Inc.・米国）に送ります。送るのは、潜ったコース・潜行の結果（生還など）・潜った時間と深さ・手ほどきの進み・購入の画面を開いたか・アプリの版・言語・端末の種類と画面の大きさ・アプリのエラーです。名前・メールアドレス・位置情報・広告 ID は送りません。記録は、端末ごとに作る乱数の ID でまとめられ、利用者本人とは結びつけません。他社のデータと組み合わせた追跡（トラッキング）はしません。通信の性質上、IP アドレスが PostHog に届きます。</li>
+  <li><b>遊ばれ方の記録（版 1.1.0 から・名前を使わない）</b>: 本アプリを良くするために、遊ばれ方の記録を解析サービス PostHog（PostHog, Inc.・米国）に送ります。送るのは、潜ったコースと特別任務・潜行の結果（生還など）・潜った時間と深さ・手ほどきの進み・開いた画面（タブ・購入の画面など）・購入と復元の結果（成功・取り消しなど。支払いの情報は含みません）・評価のお願いを出したか・Game Center の順位と人数・測量図を共有したか・選んだ言語・アプリの版・端末の種類と OS・画面の大きさ・タイムゾーン・アプリのエラーです。</li>
+  <li>名前・メールアドレス・正確な位置・連絡先・写真・広告 ID（IDFA）は送りません。記録は、端末ごとに作る乱数の ID でまとめられ、利用者本人とは結びつけません。ほかの会社のデータと組み合わせた追跡（トラッキング）はしません。</li>
+  <li>通信の性質上、IP アドレスが PostHog に届き、PostHog の記録に残ることがあります。IP アドレスからおおよその位置を推定する機能は切っています。</li>
+  <li><b>止め方</b>: 本アプリの「設定」→「遊ばれ方の記録」で「送らない」を選ぶと、以後は何も送りません。「記録を消して最初から」を使うと、乱数の ID も新しくなり、前の記録とはつながりません。</li>
   <li><b>アプリ内課金</b>: 購入は Apple の App Store で行われます。当方は、カードなどの支払いの情報を受け取りません。</li>
-  <li><b>Game Center</b>: Game Center にサインインしている場合、記録章（実績）が Apple の Game Center に送られます。</li>
-  <li>App Store・Game Center の情報の扱いは、Apple のプライバシーポリシーに従います。広告とアカウントはありません。</li>
+  <li><b>Game Center</b>: Game Center にサインインしている場合、記録章（実績）と、版 1.1.0 から最奥まで往復した時間（順位表）が Apple の Game Center に送られます。順位表では、往復の時間が Game Center の名前と一緒に、世界中のプレイヤーに表示されます。本アプリは、自分の順位と載っている人数を Game Center から読み、帰還の画面に出します。Game Center の名前や公開の範囲は、端末の「設定」→「Game Center」で変えられます。</li>
+  <li>App Store と Game Center の情報の扱いは、Apple のプライバシーポリシーに従います。本アプリに広告とアカウントはありません。</li>
 </ul>
-<h2>2. 端末に保存する情報</h2>
+<h2>2. 使い道</h2>
+<p>集めた記録は、不具合を直す・遊びにくい所を見つける・作り込む順番を決めるためだけに使います。売ったり、広告に使ったり、利用者本人を特定しようとしたりはしません。</p>
+<h2>3. 渡す先と国外への移転</h2>
+<p>遊ばれ方の記録は、解析を任せている PostHog（米国）にだけ渡ります。PostHog での扱いは <a href="https://posthog.com/privacy">PostHog</a> のプライバシーポリシーに従います。米国の個人情報の保護の制度は、日本や EU のものと異なります。法令で求められる場合を除き、ほかの誰にも渡しません。</p>
+<h2>4. 残す期間</h2>
+<p>PostHog の記録は 1 年で期限が切れ、順に消されます。端末の中の記録は、本アプリを削除するか「記録を消して最初から」を使うと消えます。</p>
+<h2>5. 端末に保存する情報</h2>
 <ul>
-  <li>ゲームの記録（進み具合・設定）と、遊ばれ方の記録に使う乱数の ID は、利用者の端末の中に保存されます。</li>
-  <li>「記録の書き出し」で作られる文字は、利用者が自分でコピーした時にだけ、利用者が選んだ場所に保存されます。</li>
+  <li>ゲームの記録（進み具合・設定）、遊ばれ方の記録に使う乱数の ID、送るかどうかの設定は、利用者の端末の中に保存されます。</li>
+  <li>「記録を書き出す」で作られる文字は、利用者が自分でコピーした時にだけ、利用者が選んだ場所に保存されます。</li>
   <li>端末のバックアップ（iCloud など）に記録が含まれる場合、その扱いは Apple のプライバシーポリシーに従います。</li>
 </ul>
-<h2>3. 変更</h2>
+<h2>6. EU・英国などにお住まいの方へ</h2>
+<ul>
+  <li><b>管理者</b>: 本アプリの開発者（連絡先は下のメール）。</li>
+  <li><b>根拠</b>: 本アプリを良くするための正当な利益（GDPR 第 6 条 1 項 (f)）。いつでも「設定」から送るのを止められます。</li>
+  <li><b>権利</b>: 自分の記録を見る・直す・消す・扱いを制限する・扱いに異議を述べる・持ち出す権利があります。メールでお知らせください。ただし、記録は乱数の ID とだけ結びついていて、当方は誰の記録かを知りません。そのため、ご本人の記録を見つけられない場合があります。送るのを止めたい時は「設定」から止め、記録を新しい ID にしたい時は「記録を消して最初から」を使ってください。</li>
+  <li><b>苦情</b>: お住まいの国のデータ保護の監督機関に申し立てられます。</li>
+</ul>
+<h2>7. 子どもについて</h2>
+<p>本アプリは子ども向けに作られたものではありません。どなたからも、名前・連絡先などの個人情報は集めません。保護者の方は、「設定」→「遊ばれ方の記録」で送るのを止められます。</p>
+<h2>8. 変更</h2>
 <p>このポリシーを変える時は、このページでお知らせします。</p>
-<h2>4. お問い合わせ</h2>
+<h2>9. お問い合わせ</h2>
 <p>メール: <a href="mailto:hy218355@gmail.com">hy218355@gmail.com</a></p>
 </section>
 
 <section lang="en">
 <h1>Privacy Policy</h1>
-<p class="date">Last updated: November 15, 2026</p>
-<p>The developer of LINE END (the "App") does not collect personal information such as your name or contact details.</p>
+<p class="date">Last updated: November 21, 2026</p>
+<p>The developer of LINE END (the "App"), the individual shown as the seller on the App Store ("we"), does not collect personal information such as your name or contact details. This policy explains what information the App handles and how.</p>
 <h2>1. Information we collect</h2>
 <ul>
-  <li><b>Anonymous play data</b>: To improve the App, it sends records of how the game is played to PostHog (PostHog, Inc., USA), an analytics service. This includes the caves you dive, the outcome of each dive (such as a safe return), dive time and depth, tutorial progress, whether the purchase screen was opened, the app version, language, device type and screen size, and app errors. It does not include your name, email address, location or advertising identifier. Records are grouped by a random ID created on your device and are not linked to you. They are not combined with other companies' data for tracking. As with any connection, your IP address reaches PostHog.</li>
+  <li><b>Anonymous play data (from version 1.1.0)</b>: To improve the App, it sends records of how the game is played to PostHog (PostHog, Inc., USA), an analytics service. This includes the caves and special missions you dive, the outcome of each dive (such as a safe return), dive time and depth, tutorial progress, screens you open (tabs, the purchase screen and so on), the result of purchases and restores (such as success or cancel; never payment details), whether a rating request was shown, your Game Center rank and the number of players, whether you shared a survey map, the language you chose, the app version, device type and OS, screen size, time zone and app errors.</li>
+  <li>It does not include your name, email address, precise location, contacts, photos or advertising identifier (IDFA). Records are grouped by a random ID created on your device and are not linked to you. They are not combined with other companies' data for tracking.</li>
+  <li>As with any connection, your IP address reaches PostHog and may be kept in PostHog's records. Estimating your approximate location from your IP address is turned off.</li>
+  <li><b>How to stop it</b>: In the App, go to Settings → "Play data" and choose "Don't send"; nothing is sent after that. "Erase save and start over" also creates a new random ID, so new records are not connected to earlier ones.</li>
   <li><b>In-app purchases</b>: Purchases are made through Apple's App Store. We never receive your card or other payment details.</li>
-  <li><b>Game Center</b>: If you are signed in to Game Center, your badges (achievements) are sent to Apple's Game Center.</li>
-  <li>Information handled by the App Store and Game Center is subject to Apple's privacy policy. There are no ads and no accounts.</li>
+  <li><b>Game Center</b>: If you are signed in to Game Center, your badges (achievements) and, from version 1.1.0, your round-trip times to the far end of each cave (leaderboards) are sent to Apple's Game Center. On leaderboards, your time is shown to players around the world together with your Game Center name. The App reads your own rank and the number of players from Game Center and shows them on the results screen. You can change your Game Center name and who can see you in Settings → Game Center on your device.</li>
+  <li>Information handled by the App Store and Game Center is subject to Apple's privacy policy. The App has no ads and no accounts.</li>
 </ul>
-<h2>2. Information stored on your device</h2>
+<h2>2. How we use it</h2>
+<p>We use play data only to fix bugs, find parts of the game that are hard to play, and decide what to improve next. We do not sell it, use it for advertising, or try to identify you.</p>
+<h2>3. Who receives it and international transfer</h2>
+<p>Play data goes only to PostHog (USA), which provides analytics for us. PostHog handles it under the <a href="https://posthog.com/privacy">PostHog</a> privacy policy. Data protection law in the United States differs from that in Japan and the EU. We do not share it with anyone else unless required by law.</p>
+<h2>4. How long we keep it</h2>
+<p>Records in PostHog expire after one year and are then deleted. Data on your device is removed when you delete the App or use "Erase save and start over".</p>
+<h2>5. Information stored on your device</h2>
 <ul>
-  <li>Your game data (progress and settings) and the random ID used for play data are stored on your device.</li>
+  <li>Your game data (progress and settings), the random ID used for play data, and your choice of whether to send play data are stored on your device.</li>
   <li>Text created with "Export save" is stored only where you choose to paste it.</li>
   <li>If your device backup (such as iCloud) includes your game data, it is handled under Apple's privacy policy.</li>
 </ul>
-<h2>3. Changes</h2>
+<h2>6. If you live in the EU, the UK or similar regions</h2>
+<ul>
+  <li><b>Controller</b>: the developer of the App (contact by the email below).</li>
+  <li><b>Legal basis</b>: our legitimate interest in improving the App (GDPR Article 6(1)(f)). You can stop sending play data at any time in Settings.</li>
+  <li><b>Your rights</b>: you have the right to access, correct, delete, restrict and object to the processing of your data, and to data portability. Please contact us by email. Because records are linked only to a random ID and we do not know whose records they are, we may not be able to find your records. To stop sending, use Settings; to start a new ID, use "Erase save and start over".</li>
+  <li><b>Complaints</b>: you may lodge a complaint with the data protection authority in your country.</li>
+</ul>
+<h2>7. Children</h2>
+<p>The App is not made for children. We do not collect names, contact details or other personal information from anyone. Parents can stop play data in Settings → "Play data".</p>
+<h2>8. Changes</h2>
 <p>If this policy changes, we will post the update on this page.</p>
-<h2>4. Contact</h2>
+<h2>9. Contact</h2>
 <p>Email: <a href="mailto:hy218355@gmail.com">hy218355@gmail.com</a></p>
+</section>
+
+<section lang="de">
+<h1>Datenschutzerklärung</h1>
+<p class="date">Zuletzt aktualisiert: 21. November 2026</p>
+<p>Der Entwickler von LINE END (die „App“), die im App Store als Anbieter angegebene Einzelperson („wir“), erhebt keine personenbezogenen Daten wie Ihren Namen oder Ihre Kontaktdaten. Diese Erklärung beschreibt, welche Informationen die App verarbeitet und wie.</p>
+<h2>1. Welche Informationen wir erheben</h2>
+<ul>
+  <li><b>Anonyme Spieldaten (ab Version 1.1.0)</b>: Um die App zu verbessern, sendet sie Aufzeichnungen darüber, wie gespielt wird, an den Analysedienst PostHog (PostHog, Inc., USA). Dazu gehören die betauchten Höhlen und Sondereinsätze, das Ergebnis jedes Tauchgangs (z. B. sichere Rückkehr), Tauchzeit und Tiefe, der Fortschritt im Tutorial, geöffnete Bildschirme (Tabs, Kaufbildschirm usw.), das Ergebnis von Käufen und Wiederherstellungen (z. B. erfolgreich oder abgebrochen; niemals Zahlungsdaten), ob eine Bewertungsanfrage angezeigt wurde, Ihre Game-Center-Platzierung und die Anzahl der Spieler, ob Sie eine Vermessungskarte geteilt haben, die gewählte Sprache, die App-Version, Gerätetyp und Betriebssystem, Bildschirmgröße, Zeitzone und App-Fehler.</li>
+  <li>Nicht gesendet werden Ihr Name, Ihre E-Mail-Adresse, Ihr genauer Standort, Kontakte, Fotos oder die Werbe-ID (IDFA). Die Aufzeichnungen werden über eine auf Ihrem Gerät erzeugte Zufalls-ID gruppiert und nicht mit Ihrer Person verknüpft. Sie werden nicht mit Daten anderer Unternehmen zum Tracking zusammengeführt.</li>
+  <li>Wie bei jeder Verbindung erreicht Ihre IP-Adresse PostHog und kann in den Aufzeichnungen von PostHog gespeichert werden. Die Schätzung Ihres ungefähren Standorts anhand der IP-Adresse ist ausgeschaltet.</li>
+  <li><b>So stellen Sie es ab</b>: Wählen Sie in der App unter Einstellungen → „Spieldaten“ die Option „Nicht senden“; danach wird nichts mehr gesendet. „Spielstand löschen und neu beginnen“ erzeugt außerdem eine neue Zufalls-ID, sodass neue Aufzeichnungen nicht mit früheren verbunden sind.</li>
+  <li><b>In-App-Käufe</b>: Käufe erfolgen über den App Store von Apple. Wir erhalten niemals Ihre Karten- oder sonstigen Zahlungsdaten.</li>
+  <li><b>Game Center</b>: Wenn Sie im Game Center angemeldet sind, werden Ihre Abzeichen (Erfolge) und ab Version 1.1.0 Ihre Zeiten für Hin- und Rückweg zum Ende jeder Höhle (Ranglisten) an das Game Center von Apple gesendet. In den Ranglisten wird Ihre Zeit zusammen mit Ihrem Game-Center-Namen Spielern auf der ganzen Welt angezeigt. Die App liest Ihre eigene Platzierung und die Anzahl der Spieler aus dem Game Center und zeigt sie auf dem Ergebnisbildschirm an. Ihren Game-Center-Namen und wer Sie sehen kann, ändern Sie auf Ihrem Gerät unter Einstellungen → Game Center.</li>
+  <li>Informationen, die der App Store und das Game Center verarbeiten, unterliegen der Datenschutzrichtlinie von Apple. Die App hat keine Werbung und keine Konten.</li>
+</ul>
+<h2>2. Wofür wir sie verwenden</h2>
+<p>Wir verwenden Spieldaten nur, um Fehler zu beheben, schwer spielbare Stellen zu finden und zu entscheiden, was wir als Nächstes verbessern. Wir verkaufen sie nicht, nutzen sie nicht für Werbung und versuchen nicht, Sie zu identifizieren.</p>
+<h2>3. Empfänger und Übermittlung ins Ausland</h2>
+<p>Spieldaten gehen nur an PostHog (USA), das für uns die Analyse bereitstellt. PostHog verarbeitet sie gemäß der Datenschutzrichtlinie von <a href="https://posthog.com/privacy">PostHog</a>. Das Datenschutzrecht in den USA unterscheidet sich von dem in Japan und der EU. Wir geben sie an niemanden sonst weiter, es sei denn, das Gesetz verlangt es.</p>
+<h2>4. Wie lange wir sie aufbewahren</h2>
+<p>Aufzeichnungen bei PostHog laufen nach einem Jahr ab und werden dann gelöscht. Daten auf Ihrem Gerät werden entfernt, wenn Sie die App löschen oder „Spielstand löschen und neu beginnen“ verwenden.</p>
+<h2>5. Auf Ihrem Gerät gespeicherte Informationen</h2>
+<ul>
+  <li>Ihre Spieldaten (Fortschritt und Einstellungen), die für Spieldaten verwendete Zufalls-ID und Ihre Wahl, ob Spieldaten gesendet werden, werden auf Ihrem Gerät gespeichert.</li>
+  <li>Mit „Spielstand exportieren“ erzeugter Text wird nur dort gespeichert, wo Sie ihn selbst einfügen.</li>
+  <li>Wenn die Sicherung Ihres Geräts (z. B. iCloud) Ihre Spieldaten enthält, gilt dafür die Datenschutzrichtlinie von Apple.</li>
+</ul>
+<h2>6. Wenn Sie in der EU, im Vereinigten Königreich oder ähnlichen Regionen leben</h2>
+<ul>
+  <li><b>Verantwortlicher</b>: der Entwickler der App (Kontakt über die unten stehende E-Mail-Adresse).</li>
+  <li><b>Rechtsgrundlage</b>: unser berechtigtes Interesse an der Verbesserung der App (Art. 6 Abs. 1 lit. f DSGVO). Sie können das Senden von Spieldaten jederzeit in den Einstellungen beenden.</li>
+  <li><b>Ihre Rechte</b>: Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Widerspruch und Datenübertragbarkeit. Bitte schreiben Sie uns eine E-Mail. Da die Aufzeichnungen nur mit einer Zufalls-ID verknüpft sind und wir nicht wissen, wem sie gehören, können wir Ihre Aufzeichnungen möglicherweise nicht finden. Zum Beenden des Sendens nutzen Sie die Einstellungen; für eine neue ID „Spielstand löschen und neu beginnen“.</li>
+  <li><b>Beschwerden</b>: Sie können sich bei der Datenschutzaufsichtsbehörde Ihres Landes beschweren.</li>
+</ul>
+<h2>7. Kinder</h2>
+<p>Die App ist nicht für Kinder gemacht. Wir erheben von niemandem Namen, Kontaktdaten oder andere personenbezogene Daten. Eltern können das Senden unter Einstellungen → „Spieldaten“ beenden.</p>
+<h2>8. Änderungen</h2>
+<p>Wenn sich diese Erklärung ändert, veröffentlichen wir die neue Fassung auf dieser Seite.</p>
+<h2>9. Kontakt</h2>
+<p>E-Mail: <a href="mailto:hy218355@gmail.com">hy218355@gmail.com</a></p>
+</section>
+
+<section lang="fr">
+<h1>Politique de confidentialité</h1>
+<p class="date">Dernière mise à jour : 21 novembre 2026</p>
+<p>Le développeur de LINE END (l’« App »), la personne indiquée comme vendeur sur l’App Store (« nous »), ne collecte pas de données personnelles telles que votre nom ou vos coordonnées. Cette politique explique quelles informations l’App traite et comment.</p>
+<h2>1. Informations collectées</h2>
+<ul>
+  <li><b>Données de jeu anonymes (à partir de la version 1.1.0)</b> : pour améliorer l’App, celle-ci envoie des informations sur la façon dont le jeu est joué au service d’analyse PostHog (PostHog, Inc., États-Unis). Cela comprend les grottes et missions spéciales plongées, le résultat de chaque plongée (par exemple un retour sain et sauf), la durée et la profondeur, la progression du tutoriel, les écrans ouverts (onglets, écran d’achat, etc.), le résultat des achats et des restaurations (par exemple réussi ou annulé ; jamais les données de paiement), l’affichage ou non d’une demande d’évaluation, votre classement Game Center et le nombre de joueurs, le partage éventuel d’une topographie, la langue choisie, la version de l’App, le type d’appareil et le système, la taille de l’écran, le fuseau horaire et les erreurs de l’App.</li>
+  <li>Ne sont pas envoyés : votre nom, votre adresse e-mail, votre position précise, vos contacts, vos photos ni l’identifiant publicitaire (IDFA). Les informations sont regroupées par un identifiant aléatoire créé sur votre appareil et ne sont pas reliées à votre personne. Elles ne sont pas combinées avec des données d’autres entreprises à des fins de suivi.</li>
+  <li>Comme pour toute connexion, votre adresse IP parvient à PostHog et peut être conservée dans ses enregistrements. L’estimation de votre position approximative à partir de l’adresse IP est désactivée.</li>
+  <li><b>Pour l’arrêter</b> : dans l’App, allez dans Réglages → « Données de jeu » et choisissez « Ne pas envoyer » ; plus rien n’est envoyé ensuite. « Effacer la sauvegarde et recommencer » crée aussi un nouvel identifiant aléatoire, de sorte que les nouvelles informations ne sont pas reliées aux anciennes.</li>
+  <li><b>Achats intégrés</b> : les achats se font via l’App Store d’Apple. Nous ne recevons jamais vos données de carte ou de paiement.</li>
+  <li><b>Game Center</b> : si vous êtes connecté à Game Center, vos insignes (succès) et, à partir de la version 1.1.0, vos temps d’aller-retour jusqu’au fond de chaque grotte (classements) sont envoyés au Game Center d’Apple. Dans les classements, votre temps est affiché aux joueurs du monde entier avec votre nom Game Center. L’App lit votre propre rang et le nombre de joueurs dans Game Center et les affiche sur l’écran des résultats. Vous pouvez modifier votre nom Game Center et qui peut vous voir dans Réglages → Game Center sur votre appareil.</li>
+  <li>Les informations traitées par l’App Store et Game Center relèvent de la politique de confidentialité d’Apple. L’App n’a ni publicité ni compte.</li>
+</ul>
+<h2>2. Utilisation</h2>
+<p>Nous utilisons les données de jeu uniquement pour corriger des bugs, repérer les passages difficiles à jouer et décider des prochaines améliorations. Nous ne les vendons pas, ne les utilisons pas pour la publicité et n’essayons pas de vous identifier.</p>
+<h2>3. Destinataires et transfert à l’étranger</h2>
+<p>Les données de jeu sont transmises uniquement à PostHog (États-Unis), qui fournit l’analyse pour nous. PostHog les traite selon la politique de confidentialité de <a href="https://posthog.com/privacy">PostHog</a>. Le droit de la protection des données aux États-Unis diffère de celui du Japon et de l’UE. Nous ne les communiquons à personne d’autre, sauf obligation légale.</p>
+<h2>4. Durée de conservation</h2>
+<p>Les informations chez PostHog expirent au bout d’un an, puis sont supprimées. Les données sur votre appareil disparaissent lorsque vous supprimez l’App ou utilisez « Effacer la sauvegarde et recommencer ».</p>
+<h2>5. Informations enregistrées sur votre appareil</h2>
+<ul>
+  <li>Vos données de jeu (progression et réglages), l’identifiant aléatoire utilisé pour les données de jeu et votre choix d’envoyer ou non ces données sont enregistrés sur votre appareil.</li>
+  <li>Le texte créé avec « Exporter la sauvegarde » n’est enregistré qu’à l’endroit où vous le collez vous-même.</li>
+  <li>Si la sauvegarde de votre appareil (par exemple iCloud) contient vos données de jeu, elle relève de la politique de confidentialité d’Apple.</li>
+</ul>
+<h2>6. Si vous résidez dans l’UE, au Royaume-Uni ou dans une région similaire</h2>
+<ul>
+  <li><b>Responsable du traitement</b> : le développeur de l’App (contact par l’e-mail ci-dessous).</li>
+  <li><b>Base légale</b> : notre intérêt légitime à améliorer l’App (article 6, paragraphe 1, point f du RGPD). Vous pouvez arrêter l’envoi des données de jeu à tout moment dans les Réglages.</li>
+  <li><b>Vos droits</b> : vous disposez d’un droit d’accès, de rectification, d’effacement, de limitation, d’opposition et de portabilité. Écrivez-nous par e-mail. Comme les informations ne sont reliées qu’à un identifiant aléatoire et que nous ne savons pas à qui elles appartiennent, il se peut que nous ne puissions pas retrouver les vôtres. Pour arrêter l’envoi, utilisez les Réglages ; pour un nouvel identifiant, « Effacer la sauvegarde et recommencer ».</li>
+  <li><b>Réclamations</b> : vous pouvez saisir l’autorité de protection des données de votre pays.</li>
+</ul>
+<h2>7. Enfants</h2>
+<p>L’App n’est pas conçue pour les enfants. Nous ne collectons auprès de personne de nom, de coordonnées ni d’autres données personnelles. Les parents peuvent arrêter l’envoi dans Réglages → « Données de jeu ».</p>
+<h2>8. Modifications</h2>
+<p>Si cette politique change, nous publierons la mise à jour sur cette page.</p>
+<h2>9. Contact</h2>
+<p>E-mail : <a href="mailto:hy218355@gmail.com">hy218355@gmail.com</a></p>
+</section>
+
+<section lang="es">
+<h1>Política de privacidad</h1>
+<p class="date">Última actualización: 21 de noviembre de 2026</p>
+<p>El desarrollador de LINE END (la «App»), la persona que figura como vendedor en el App Store («nosotros»), no recopila datos personales como su nombre o sus datos de contacto. Esta política explica qué información trata la App y cómo.</p>
+<h2>1. Información que recopilamos</h2>
+<ul>
+  <li><b>Datos de juego anónimos (desde la versión 1.1.0)</b>: para mejorar la App, esta envía registros sobre cómo se juega al servicio de análisis PostHog (PostHog, Inc., EE. UU.). Incluyen las cuevas y misiones especiales que bucea, el resultado de cada inmersión (por ejemplo, un regreso a salvo), el tiempo y la profundidad, el avance del tutorial, las pantallas que abre (pestañas, pantalla de compra, etc.), el resultado de las compras y restauraciones (por ejemplo, completada o cancelada; nunca datos de pago), si se mostró una solicitud de valoración, su puesto en Game Center y el número de jugadores, si compartió un mapa topográfico, el idioma elegido, la versión de la App, el tipo de dispositivo y sistema, el tamaño de pantalla, la zona horaria y los errores de la App.</li>
+  <li>No se envían su nombre, su correo electrónico, su ubicación precisa, sus contactos, sus fotos ni el identificador publicitario (IDFA). Los registros se agrupan mediante un identificador aleatorio creado en su dispositivo y no se vinculan a usted. No se combinan con datos de otras empresas para hacer seguimiento.</li>
+  <li>Como en cualquier conexión, su dirección IP llega a PostHog y puede quedar en sus registros. La estimación de su ubicación aproximada a partir de la dirección IP está desactivada.</li>
+  <li><b>Cómo detenerlo</b>: en la App, vaya a Ajustes → «Datos de juego» y elija «No enviar»; a partir de entonces no se envía nada. «Borrar la partida y empezar de nuevo» también crea un identificador aleatorio nuevo, de modo que los registros nuevos no se relacionan con los anteriores.</li>
+  <li><b>Compras dentro de la App</b>: las compras se realizan a través del App Store de Apple. Nunca recibimos los datos de su tarjeta ni otros datos de pago.</li>
+  <li><b>Game Center</b>: si ha iniciado sesión en Game Center, sus insignias (logros) y, desde la versión 1.1.0, sus tiempos de ida y vuelta hasta el fondo de cada cueva (clasificaciones) se envían al Game Center de Apple. En las clasificaciones, su tiempo se muestra a jugadores de todo el mundo junto con su nombre de Game Center. La App lee su propio puesto y el número de jugadores en Game Center y los muestra en la pantalla de resultados. Puede cambiar su nombre de Game Center y quién puede verle en Ajustes → Game Center de su dispositivo.</li>
+  <li>La información que tratan el App Store y Game Center se rige por la política de privacidad de Apple. La App no tiene anuncios ni cuentas.</li>
+</ul>
+<h2>2. Para qué la usamos</h2>
+<p>Usamos los datos de juego solo para corregir errores, encontrar partes difíciles de jugar y decidir qué mejorar después. No los vendemos, no los usamos para publicidad y no intentamos identificarle.</p>
+<h2>3. Destinatarios y transferencia internacional</h2>
+<p>Los datos de juego solo se envían a PostHog (EE. UU.), que nos presta el servicio de análisis. PostHog los trata según la política de privacidad de <a href="https://posthog.com/privacy">PostHog</a>. La legislación de protección de datos de Estados Unidos es distinta de la de Japón y la UE. No los compartimos con nadie más, salvo que la ley lo exija.</p>
+<h2>4. Cuánto tiempo los conservamos</h2>
+<p>Los registros en PostHog caducan al cabo de un año y después se eliminan. Los datos de su dispositivo se borran al eliminar la App o al usar «Borrar la partida y empezar de nuevo».</p>
+<h2>5. Información guardada en su dispositivo</h2>
+<ul>
+  <li>Sus datos de juego (progreso y ajustes), el identificador aleatorio usado para los datos de juego y su elección de enviarlos o no se guardan en su dispositivo.</li>
+  <li>El texto creado con «Exportar partida» solo se guarda donde usted lo pegue.</li>
+  <li>Si la copia de seguridad de su dispositivo (por ejemplo, iCloud) incluye sus datos de juego, se rige por la política de privacidad de Apple.</li>
+</ul>
+<h2>6. Si reside en la UE, el Reino Unido o regiones similares</h2>
+<ul>
+  <li><b>Responsable del tratamiento</b>: el desarrollador de la App (contacto en el correo de abajo).</li>
+  <li><b>Base jurídica</b>: nuestro interés legítimo en mejorar la App (artículo 6, apartado 1, letra f del RGPD). Puede dejar de enviar datos de juego en cualquier momento desde Ajustes.</li>
+  <li><b>Sus derechos</b>: tiene derecho de acceso, rectificación, supresión, limitación, oposición y portabilidad. Escríbanos por correo. Como los registros solo están vinculados a un identificador aleatorio y no sabemos a quién pertenecen, es posible que no podamos encontrar los suyos. Para dejar de enviar, use Ajustes; para un identificador nuevo, «Borrar la partida y empezar de nuevo».</li>
+  <li><b>Reclamaciones</b>: puede presentar una reclamación ante la autoridad de protección de datos de su país.</li>
+</ul>
+<h2>7. Menores</h2>
+<p>La App no está pensada para menores. No recopilamos de nadie nombres, datos de contacto ni otros datos personales. Los padres pueden detener el envío en Ajustes → «Datos de juego».</p>
+<h2>8. Cambios</h2>
+<p>Si esta política cambia, publicaremos la actualización en esta página.</p>
+<h2>9. Contacto</h2>
+<p>Correo electrónico: <a href="mailto:hy218355@gmail.com">hy218355@gmail.com</a></p>
 </section>
 </body>
 </html>
